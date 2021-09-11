@@ -6,7 +6,7 @@ import { IoCheckmarkDoneSharp } from "react-icons/io5";
 import { IoCodeWorkingSharp } from "react-icons/io5";
 import PropTypes from 'prop-types';
 
-const Questions = ({userData}) =>{
+const QuestionsTab = ({userData}) =>{
     const [active, setActive] = useState(1);
 
     const tabItems = [
@@ -62,8 +62,8 @@ const TabItem = ({
     )
   };
 
-  Questions.propTypes = {
+  QuestionsTab.propTypes = {
     userData: PropTypes.object.isRequired
   };
   
-export default Questions;
+export default QuestionsTab;

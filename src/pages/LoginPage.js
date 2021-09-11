@@ -12,6 +12,7 @@ const LoginPage = () => {
   let history = useHistory();
   let location = useLocation();
   let { from } = location.state || { from: { pathname: "/home" } };
+ 
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -32,9 +33,6 @@ const LoginPage = () => {
     
   }
   formattedUser.unshift(initial);
-  
-
- // console.info(formattedUser);
 
   const [userID, setUserID] = useState("");
   const [userIndex, setuserIndex] = useState(0);

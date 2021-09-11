@@ -12,7 +12,10 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
     <Component {...props} />
     </MasterLayout>
 ) : (
-    <Redirect to="/" />
+    <Redirect to={{
+      pathname: '/',
+      state: { from: props.location }
+    }}/>
   )
   )} />
   };

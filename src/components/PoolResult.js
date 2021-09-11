@@ -1,41 +1,11 @@
-import { useParams } from "react-router-dom";
-import HeaderCard from "../components/UI/HeaderCard";
-import { useSelector } from "react-redux";
+import HeaderCard from "./UI/HeaderCard";
 import { BiSend } from "react-icons/bi";
 import { useHistory } from "react-router-dom";
 import { getPercent } from "../utils/Util";
+import PropTypes from 'prop-types';
 
-const PoolResult = () => {
+const PoolResult = ({question,userVoted}) => {
   let history = useHistory();
-  // const questions = useSelector((state) => state.user.questions);
-  // const users = useSelector((state) => state.user.users);
-  // const params = useParams();
-  // const { questionId } = params;
-  // const question = questions[questionId];
-  // const user = users[question["author"]];
-  // const userVoted = user.answers[question.id];
-
-  // console.log(JSON.stringify(user))
-  // console.log(userVoted,JSON.stringify(question))
-  // console.log("==============================")
-  // console.log(JSON.stringify(questions))
-
-
-  const questions = useSelector((state) => state.vote.questions);
-  const users = useSelector((state) => state.vote.users);
-  const userId = useSelector((state) => state.vote.authenticatedUser);
-  const params = useParams();
-  const { questionId } = params;
-  const question = questions[questionId];
-  const user = users[userId];
-  const userVoted = user.answers[question.id];
-
-  // console.log(JSON.stringify(user))
-  // console.log(userVoted,JSON.stringify(question))
-  // console.log("==============================")
-  // console.log(JSON.stringify(question))
-
-
   const optionOneVote = question.optionOne.votes.length;
   const optionTwoVote = question.optionTwo.votes.length;
   const totalVote = optionOneVote + optionTwoVote;
@@ -47,8 +17,6 @@ const PoolResult = () => {
     question.optionTwo.votes.length,
     totalVote
   );
-  //const optionOneVotePercent= 100;
-
   const handleClick = () =>{
     history.replace("/");
   }
@@ -95,14 +63,6 @@ const PoolResult = () => {
               </div>
               <div className="text-sm py-2  font-bold"> {optionTwoVote} out of {totalVote} votes </div> 
             </div>
-
-
-
-
-
-
-           
-             
             <div className="flex justify-end">
             <button
                 className="w-1/4 flex flex-row justify-end py-2 px-4 mt-5 border 
@@ -122,5 +82,8 @@ const PoolResult = () => {
     </>
   );
 };
-
+PoolResult.propTypes = {
+  question: PropTypes.object.isRequired,
+  userVoted: PropTypes.string.isRequired
+};
 export default PoolResult;

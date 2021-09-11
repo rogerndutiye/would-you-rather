@@ -33,7 +33,6 @@ const NewPool = () => {
       optionTwoText,
       author,
     };
-    //console.log(question)
     dispatch(saveQuestion({ question}));
     history.replace("/");
   };

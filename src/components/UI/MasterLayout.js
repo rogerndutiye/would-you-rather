@@ -7,9 +7,9 @@ import PropTypes from 'prop-types';
 import appLogo from '../../assets/images/Udacity_logo.svg'
 
 const navigation = [
-  { name: "Home", href: "home", current: true },
-  { name: "New Poll", href: "newpool", current: false },
-  { name: "Leader Board", href: "leaderboard", current: false },
+  { name: "Home", href: "home"},
+  { name: "New Poll", href: "add"},
+  { name: "Leader Board", href: "leaderboard"},
 ];
 
 

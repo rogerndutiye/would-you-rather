@@ -1,5 +1,5 @@
 
-import Questions from '../components/Questions';
+import QuestionsTab from '../components/QuestionsTab';
 import {useSelector} from 'react-redux';
 import {getUserQuestionDetails} from '../services/ApiService'
 
@@ -10,7 +10,7 @@ const HomePage = () => {
    const userQuestionDetails=getUserQuestionDetails(users,questions,authenticatedUser);
 
    return <>
-        <Questions userData={userQuestionDetails}/>
+        <QuestionsTab userData={userQuestionDetails}/>
    </>
 }
 

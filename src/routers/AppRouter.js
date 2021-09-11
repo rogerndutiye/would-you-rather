@@ -4,12 +4,12 @@ import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 
 import HomePage from '../pages/HomePage';
-import NewPool from'../pages/NewPoolPage';
+import NewPoolPage from'../pages/NewPoolPage';
 import LeaderBoardPage from '../pages/LeaderBoardPage';
 import LoginPage from '../pages/LoginPage';
 import NotFoundPage from '../pages/NotFoundPage';
-import PoolQuestionPage from '../pages/PoolQuestionPage';
-import PoolResultPage from '../pages/PoolResultPage';
+import QuestionsPage from '../pages/QuestionsPage';
+//import PoolResultPage from '../pages/PoolResultPage';
 
 import history from "./history";
 
@@ -19,9 +19,8 @@ const AppRouter = () => (
         <PublicRoute  path="/" component={LoginPage} exact/>
         <PrivateRoute path="/home" component={HomePage} exact/>
         <PrivateRoute path="/leaderboard" component={LeaderBoardPage} exact/>
-        <PrivateRoute path="/newpool" component={NewPool} exact/>
-        <PrivateRoute path="/poolquestion/:questionId" component={PoolQuestionPage}/>
-        <PrivateRoute path="/poolresult/:questionId" component={PoolResultPage}/>
+        <PrivateRoute path="/add" component={NewPoolPage} exact/>
+        <PrivateRoute path="/questions/:questionId" component={QuestionsPage}/>
         <Route component={NotFoundPage}/>
       </Switch>
   </Router>

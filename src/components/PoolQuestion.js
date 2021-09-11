@@ -1,18 +1,14 @@
-import { useParams } from "react-router-dom";
-import HeaderCard from "../components/UI/HeaderCard";
+import HeaderCard from "./UI/HeaderCard";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import { BiSend } from "react-icons/bi";
 import { saveQuestionAnswer } from "../data/store/voteSlice";
 import { useHistory } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 
-const PoolQuestion = () => {
+const PoolQuestion = ({question}) => {
   let history = useHistory();
-  const questions = useSelector((state) => state.vote.questions);
-  const params = useParams();
-  const { questionId } = params;
-  const question = questions[questionId];
   const qid = question.id;
   const authedUser = useSelector((state) => state.vote.authenticatedUser);
 
@@ -29,9 +25,8 @@ const PoolQuestion = () => {
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    //console.log(answer)
     dispatch(saveQuestionAnswer({ authedUser, qid, answer }));
-    history.replace("/poolresult/" + qid);
+    history.replace("/questions/" + qid);
   };
 
   return (
@@ -91,4 +86,7 @@ const PoolQuestion = () => {
   );
 };
 
+PoolQuestion.propTypes = {
+  question: PropTypes.object.isRequired
+};
 export default PoolQuestion;
